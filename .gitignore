@@ -1,0 +1,75 @@
+# ======================
+# Python
+# ======================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ======================
+# Virtual Environments
+# ======================
+venv/
+.env/
+.ingest/
+ingest/
+.venv/
+
+# ======================
+# Environment variables & secrets
+# ======================
+*.env
+*.json
+!example.env
+!schema.json
+
+# ======================
+# GCP / BigQuery / Terraform
+# ======================
+gcs.json
+*.pem
+*.key
+*.credentials
+
+# ======================
+# Data files (local)
+# ======================
+
+# Root data folder
+data/
+
+# Ingestion downloaded data
+ingestion/data/
+
+# Any CSV/parquet downloaded inside ingestion
+ingestion/*.csv
+ingestion/*.csv.gz
+ingestion/*.parquet
+ingestion/*.zip
+ingestion/*.avro
+
+# Generic data formats
+*.parquet
+*.csv
+*.avro
+*.zip
+*.csv.gz
+
+# ======================
+# Jupyter / Colab
+# ======================
+.ipynb_checkpoints/
+*.ipynb
+
+# ======================
+# OS / Editor
+# ======================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ======================
+# Logs
+# ======================
+*.log
