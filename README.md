@@ -40,81 +40,14 @@ Data source: DataTalksClub NYC TLC dataset release files.
 04-analytics-engineering/
 │
 ├── ingestion/
-│   ├── load_to_gcs.py
+│   ├── load_nytaxi_data.py
 │   └── data/                # ignored in git
 │
-├── models/
-│   ├── staging/
-│   │   ├── stg_green_tripdata.sql
-│   │   ├── stg_yellow_tripdata.sql
-│   │   └── stg_fhv_tripdata.sql
-│   │
-│   ├── intermediate/
-│   │   └── int_trips_unioned.sql
-│   │
-│   └── marts/
-│       ├── fct_trips.sql
-│       ├── dim_zones.sql
-│       └── fct_monthly_zone_revenue.sql
+└── stg_fhv_tripdata.sql   
 │
 └── README.md
 ```
 
----
-
-## Setup Instructions
-
-### 1. Load data to GCS
-
-```bash
-python ingestion/load_to_gcs.py
-```
-
-### 2. Create BigQuery External Tables
-
-Create two external tables pointing to GCS files:
-
-* yellow_tripdata
-* green_tripdata
-
-### 3. Run dbt models
-
-```bash
-dbt build --target prod
-```
-
-This will:
-
-* Run staging models
-* Create intermediate models
-* Create fact and dimension tables
-* Run data quality tests
-
----
-
-## dbt Models Explained
-
-### Staging
-
-Cleans raw data and standardizes column names
-
-* stg_green_tripdata
-* stg_yellow_tripdata
-* stg_fhv_tripdata
-
-### Intermediate
-
-Combines datasets into a unified trips table
-
-* int_trips_unioned
-
-### Marts
-
-Business‑ready analytics tables
-
-* fct_trips → All taxi trips
-* dim_zones → Taxi zones lookup
-* fct_monthly_zone_revenue → Monthly revenue by zone
 
 ---
 
